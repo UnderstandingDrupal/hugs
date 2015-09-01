@@ -5,3 +5,6 @@ hugs.settings:
     default_count:
       type: integer
       label: 'Default hug count'
+    extra_message:
+      type: label
+      label: 'An additional message to display when hugging'

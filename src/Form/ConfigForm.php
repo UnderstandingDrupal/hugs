@@ -19,6 +19,13 @@ class ConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('default_count'),
     ];
 
+    $form['extra_message'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Extra message'),
+      '#default_value' => $config->get('extra_message'),
+      '#description' => $this->t('Optionally provide an additional message that will be shown when someone gets hugged.'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -26,8 +33,10 @@ class ConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $config = $this->config('hugs.settings');
-    $config->set('default_count', $form_state->getValue('default_count'));
-    $config->save();
+    $config
+      ->set('default_count', $form_state->getValue('default_count'))
+      ->set('extra_message', $form_state->getValue('extra_message'))
+      ->save();
   }
 
   public function getEditableConfigNames() {

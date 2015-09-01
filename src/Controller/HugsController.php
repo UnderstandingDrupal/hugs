@@ -58,7 +58,8 @@ class HugsController extends ControllerBase {
       '#theme' => 'hug_page',
       '#from' => $from,
       '#to' => $to,
-      '#count' => $count
+      '#count' => $count,
+      '#extra' => $this->config('hugs.settings')->get('extra_message'),
     ];
   }
 
@@ -70,7 +71,8 @@ class HugsController extends ControllerBase {
       '#theme' => 'hug_page',
       '#from' => $from,
       '#to' => $to,
-      '#count' => $count
+      '#count' => $count,
+      '#extra' => $this->config('hugs.settings')->get('extra_message'),
     ];
   }
 
