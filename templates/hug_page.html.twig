@@ -4,5 +4,7 @@
   {% plural count %}
     <strong>{{ from }}</strong> hugs <em>{{ to }}</em> {{ count }} times.
   {% endtrans %}
-  <p>{{ extra }}</p>
+  {%  if extra %}
+    <p>{{ extra }}</p>
+  {% endif %}
 </section>

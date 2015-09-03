@@ -51,28 +51,30 @@ class HugsController extends ControllerBase {
 
   public function hug($to, $from, $count) {
     $this->hugTracker->addHug($to);
+    $config = $this->config('hugs.settings');
     if (!$count) {
-      $count = $this->config('hugs.settings')->get('default_count');
+      $count = $config->get('default_count');
     }
     return [
       '#theme' => 'hug_page',
       '#from' => $from,
       '#to' => $to,
       '#count' => $count,
-      '#extra' => $this->config('hugs.settings')->get('extra_message'),
+      '#extra' => $config->get('extra_message'),
     ];
   }
 
   public function hug3($to, $from, $count) {
+    $config = $this->config('hugs.settings');
     if (!$count) {
-      $count = $this->config('hugs.settings')->get('default_count');
+      $count = $config->get('default_count');
     }
     return [
       '#theme' => 'hug_page',
       '#from' => $from,
       '#to' => $to,
       '#count' => $count,
-      '#extra' => $this->config('hugs.settings')->get('extra_message'),
+      '#extra' => $config->get('extra_message'),
     ];
   }
 
